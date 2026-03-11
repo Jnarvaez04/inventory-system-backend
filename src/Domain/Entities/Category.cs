@@ -9,6 +9,6 @@ namespace inventarySystem_backend.src.Domain.Entities
         [Required]
         public string Name { get; set; } = string.Empty;
         [Required]
-        public DateTime CreateAt { get; set; }
+        public DateTime CreationDate { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace inventarySystem_backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260311160353_InitialMigration")]
+    [Migration("20260311181109_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -32,7 +32,7 @@ namespace inventarySystem_backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreateAt")
+                    b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
