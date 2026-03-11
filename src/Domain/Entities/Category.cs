@@ -1,0 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace inventarySystem_backend.src.Domain.Entities
+{
+    public class Category
+    {
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+        [Required]
+        public DateTime CreateAt { get; set; }
+    }
+}
