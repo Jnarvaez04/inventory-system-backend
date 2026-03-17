@@ -1,6 +1,7 @@
 # Build folders
 bin/
 obj/
+.agents/
 
 # Visual Studio Code
 .vscode/
