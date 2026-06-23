@@ -1,4 +1,8 @@
+using inventarySystem_backend.application.Interfaces;
+using inventarySystem_backend.application.Services;
+using inventarySystem_backend.domain.Interfaces;
 using inventarySystem_backend.infrastructure.Data;
+using inventarySystem_backend.infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +13,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // 2. REGISTRAR EL CONTEXTO DE ENTITY FRAMEWORK CORE
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
