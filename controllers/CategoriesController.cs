@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using inventarySystem_backend.application.DTOs;
 using inventarySystem_backend.application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace inventarySystem_backend.controllers;
 
@@ -37,6 +31,15 @@ public class CategoriesController : ControllerBase
             return NotFound(new { message = $"Categoria con ID {id} no encontrada."});
         }
         return Ok(category);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] CreateCategoryDto dto)
+    {
+        var createdCategory = await _categoryService.CreateAsync(dto);
+        
+        // Retorna un estado 201 Created con la ruta para consultar la nueva categoría
+        return CreatedAtAction(nameof(GetById), new { id = createdCategory.Id }, createdCategory);
     }
 
     [HttpPut("{id:int}")]
