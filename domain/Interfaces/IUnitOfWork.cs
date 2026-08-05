@@ -5,6 +5,7 @@ public interface IUnitOfWork : IDisposable
     // Exponemos las interfaces de los repositorios como propiedades de solo lectura
     ICategoryRepository Categories { get; }
     IProductRepository Products { get; }
+    IInventoryTransactionRepository InventoryTransactions { get; }
 
 
     Task<int> SaveChangesAsync();   
