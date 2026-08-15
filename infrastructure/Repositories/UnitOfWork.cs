@@ -11,6 +11,7 @@ public class UnitOfWork : IUnitOfWork
     public ICategoryRepository Categories { get; }
     public IProductRepository Products { get; }
     public IInventoryTransactionRepository InventoryTransactions { get; }
+    public IUserRepository Users { get; }
 
     public UnitOfWork(AppDbContext context)
     {
@@ -19,6 +20,7 @@ public class UnitOfWork : IUnitOfWork
         Products = new ProductRepository(_context);
         Categories = new CategoryRepository(_context);
         InventoryTransactions = new InventoryTransactionRepository(_context);
+        Users = new UserRepository(_context);
     }
 
     public async Task<int> SaveChangesAsync()
